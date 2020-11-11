@@ -1,0 +1,20 @@
+<div class="container mt-5">
+  <h1><%= @restaurant.name %></h1>
+  <h4>Style: <%= @restaurant.category.capitalize %></h4>
+  <p>Address: <%= @restaurant.address %></p>
+  <p>Phone number: <%= @restaurant.phone_number %></p>
+  <div class="review">
+    <h3>Reviews:</h3>
+    <%= button_to "Add a review", new_restaurant_review_path(@restaurant), method: :get %><br>
+    <% @restaurant.reviews.each do |review| %>
+    <p>
+      Rating: <%= review.rating %>/5
+    </p>
+    <p>
+      Review: <%= review.content %>
+    </p>
+    <% end %>
+  </div>
+  </p>
+  <%= link_to "Back to the list of restaurants", restaurants_path %>
+</div>

@@ -1,0 +1,11 @@
+<div class="container mt-5">
+  <h1>Restaurants</h1>
+  <ul style="list-style-type:none;">
+    <% @restaurants.each do |resto| %>
+      <li>
+        <%= link_to resto.name.capitalize, restaurant_path(resto) %>
+      </li>
+    <% end %>
+  </ul>
+  <%= button_to "Add restaurant", new_restaurant_path, method: :get %>
+</div>
